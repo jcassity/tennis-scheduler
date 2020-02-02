@@ -2,8 +2,12 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 
 export default class CreatePlayer extends Component {
+
 
     constructor(props) {
         super(props)
@@ -54,25 +58,29 @@ export default class CreatePlayer extends Component {
 
     render() {
         return (
-            <div className="wrapper">
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Add Player Name</label>
-                        <input type="text" value={this.state.name} onChange={this.onChangePlayerName} className="form-control" />
+            <Card>
+                <CardContent>
+                    <div className="wrapper">
+                        <form onSubmit={this.onSubmit}>
+                            <div className="form-group">
+                                <label>Add Player Name</label>
+                                <input type="text" value={this.state.name} onChange={this.onChangePlayerName} className="form-control" />
+                            </div>
+                            <div className="form-group">
+                                <label>wins</label>
+                                <input type="number" value={this.state.wins} onChange={this.onChangePlayerWins} className="form-control" />
+                            </div>
+                            <div className="form-group">
+                                <label>Losses</label>
+                                <input type="number" value={this.state.losses} onChange={this.onChangePlayerLosses} className="form-control" />
+                            </div>
+                            <div className="form-group">
+                                <input type="submit" value="Create Player" className="btn btn-success btn-block" />
+                            </div>
+                        </form>
                     </div>
-                    <div className="form-group">
-                        <label>wins</label>
-                        <input type="number" value={this.state.wins} onChange={this.onChangePlayerWins} className="form-control" />
-                    </div>
-                    <div className="form-group">
-                        <label>Losses</label>
-                        <input type="number" value={this.state.losses} onChange={this.onChangePlayerLosses} className="form-control" />
-                    </div>
-                    <div className="form-group">
-                        <input type="submit" value="Create Player" className="btn btn-success btn-block" />
-                    </div>
-                </form>
-            </div>
+                </CardContent>
+            </Card>
         )
     }
 }

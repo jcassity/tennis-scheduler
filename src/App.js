@@ -8,6 +8,7 @@ import List from "@material-ui/core/List";
 import CreatePlayer from "./components/create-player.component";
 import Players from "./components/players.component";
 import NavBar from "./components/navBar";
+import Home from "./components/homePage";
 
 function App() {
   return (
@@ -15,17 +16,17 @@ function App() {
       <NavBar
         list={<List>
                 <ListItem button component={Link} to='/createPlayer'>
-                    <ListItemText primary="Create Player"></ListItemText>
+                    <ListItemText primary="Lineups"></ListItemText>
                 </ListItem>
                 <ListItem button component={Link} to='/players'>
-                    <ListItemText primary="Player List"></ListItemText>
+                    <ListItemText primary="Players"></ListItemText>
                 </ListItem>
               </List>}
         routing={<div className="container">
                   <div className="row">
                     <div className="col-md-12">
                       <Switch>
-                        <Route exact path='/' component={Players} />
+                        <Route exact path='/' component={Home} />
                         <Route path="/createPlayer" component={CreatePlayer} />
                         <Route path="/players" component={Players} />
                       </Switch>

@@ -14,6 +14,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -22,6 +23,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex"
   },
   appBar: {
+    background: "#14213D",
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
@@ -43,7 +45,7 @@ const useStyles = makeStyles(theme => ({
   },
   drawer: {
     width: drawerWidth,
-    flexShrink: 0
+    flexShrink: 0,
   },
   drawerPaper: {
     width: drawerWidth
@@ -56,6 +58,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "flex-end"
   },
   content: {
+    background: "#9FA2B2",
     flexGrow: 1,
     padding: theme.spacing(3),
     transition: theme.transitions.create("margin", {
@@ -128,6 +131,11 @@ export default function PersistentDrawerLeft(props) {
             )}
           </IconButton>
         </div>
+        <List>
+          <ListItem button component={Link} to='/'>
+            <ListItemText primary="Home"></ListItemText>
+          </ListItem>
+        </List>
         <Divider />
               {props.list}
         <Divider />
