@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import DataTable from './data-table';
+import Button from '@material-ui/core/Button';
+import {Link} from 'react-router-dom'
+import ReactTable from 'react-table';
+import { columns, subComponent } from './tableSetup';
+
+import "../player.css";
 
 export default class players extends Component {
 
@@ -32,16 +38,19 @@ export default class players extends Component {
                     <table className="table table-striped table-dark">
                         <thead className="thead-dark">
                             <tr>
-                                <td>ID</td>
                                 <td>Name</td>
                                 <td>Wins</td>
                                 <td>Losses</td>
+                                <td>Delete/Edit</td>
                             </tr>
                         </thead>
                         <tbody>
                             {this.dataTable()}
                         </tbody>
                     </table>
+                    <Link to='/createPlayer'>
+                        <Button variant="contained">Add</Button>
+                    </Link>
                 </div>
             </div>
         )
