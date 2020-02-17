@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DataTable from './data-table';
 import Button from '@material-ui/core/Button';
-import {Link} from 'react-router-dom'
-import ReactTable from 'react-table';
-import { columns, subComponent } from './tableSetup';
-
-import "../player.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import NewTable from "./newTable";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome"
+import * as Icons from "@fortawesome/fontawesome-free-solid"
 
 export default class players extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { playersCollection: [] };
+        this.state = { playersCollection: []};
     }
 
     componentDidMount() {
@@ -35,7 +34,7 @@ export default class players extends Component {
         return (
             <div className="wrapper-players">
                 <div className="container">
-                    <table className="table table-striped table-dark">
+                    {/* <table className="table table-striped table-dark">
                         <thead className="thead-dark">
                             <tr>
                                 <td>Name</td>
@@ -47,10 +46,8 @@ export default class players extends Component {
                         <tbody>
                             {this.dataTable()}
                         </tbody>
-                    </table>
-                    <Link to='/createPlayer'>
-                        <Button variant="contained">Add</Button>
-                    </Link>
+                    </table> */}
+                    <NewTable />
                 </div>
             </div>
         )

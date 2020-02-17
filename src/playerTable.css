@@ -1,0 +1,11 @@
+.icon {
+    float: right;
+}
+
+table {
+    max-width: 800px;
+    table-layout: fixed;
+    margin-left:auto; 
+    margin-right:auto;
+}
+
