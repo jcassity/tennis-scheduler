@@ -3,9 +3,16 @@
 }
 
 table {
-    max-width: 800px;
+    max-width: 400px;
     table-layout: fixed;
     margin-left:auto; 
     margin-right:auto;
 }
 
+.playerCard {
+    width: 400px;
+}
+
+.playerContent {
+    height: 100px;
+}

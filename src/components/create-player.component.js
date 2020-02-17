@@ -56,43 +56,11 @@ export default class CreatePlayer extends Component {
             });
 
         this.setState({ name: '', wins: '', losses: '' , s: true})
+        window.location.reload(false);
     }
 
 
     render() {
-        if (this.state.s === true) {
-            return (
-                <div>
-                    <h1>Player Added!</h1>
-                    <Link to='/players'>
-                        <Button variant="contained">Back To Players</Button>
-                    </Link>
-                    <Card>
-                        <CardContent>
-                            <div className="wrapper">
-                                <form onSubmit={this.onSubmit}>
-                                    <div className="form-group">
-                                        <label>Add Player Name</label>
-                                        <input type="text" value={this.state.name} onChange={this.onChangePlayerName} className="form-control" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label>wins</label>
-                                        <input type="number" value={this.state.wins} onChange={this.onChangePlayerWins} className="form-control" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Losses</label>
-                                        <input type="number" value={this.state.losses} onChange={this.onChangePlayerLosses} className="form-control" />
-                                    </div>
-                                    <div className="form-group">
-                                        <input type="submit" value="Create Player" className="btn btn-success btn-block" />
-                                    </div>
-                                </form>
-                            </div>
-                        </CardContent>
-                    </Card>
-                </div>
-            );
-        }
         return (
             <Card>
                 <CardContent>
