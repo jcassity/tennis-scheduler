@@ -5,8 +5,8 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import List from "@material-ui/core/List";
 
-import CreatePlayer from "./components/create-player.component";
-import Players from "./components/players.component";
+import CreatePlayer from "./components/playersPage/create-player.component";
+import Players from "./components/playersPage/players.component";
 import NavBar from "./components/navBar";
 import Home from "./components/homePage";
 

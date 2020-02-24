@@ -16,3 +16,7 @@ table {
 .playerContent {
     height: 100px;
 }
+
+.addButton {
+    width: 200px;
+}
