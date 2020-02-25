@@ -1,14 +1,24 @@
 import React from 'react';
+import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
+    paddingBlockStart: '2%',
+    paddingBottom: '.01%'
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -24,10 +34,23 @@ const useStyles = makeStyles(theme => ({
 export default function ControlledExpansionPanels(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
+  
+  function handleDelete(id){
+    axios.delete('http://localhost:4000/players/delete/' + id);
+  }
 
   return (
     <div className={classes.root}>
@@ -40,8 +63,29 @@ export default function ControlledExpansionPanels(props) {
         <Typography className={classes.heading}>{props.obj.name}</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
+          <Typography>
+            Wins: {props.obj.wins}
+            <br/>
+            Losses: {props.obj.losses}
+            <br/>
+            <button onClick={handleClickOpen}>Edit</button>
+            <button onClick={() => handleDelete(props.obj._id)}>Delete</button>
+          </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+        <DialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Email Address"
+            type="email"
+            fullWidth
+          />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
