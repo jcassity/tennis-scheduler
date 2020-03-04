@@ -13,6 +13,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import EditPlayer from './edit-player.component';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -74,16 +75,11 @@ export default function ControlledExpansionPanels(props) {
         </ExpansionPanelDetails>
       </ExpansionPanel>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+        <DialogTitle id="form-dialog-title">Edit Player</DialogTitle>
         <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
-          />
+          <div>
+            <EditPlayer />
+          </div>
         </DialogContent>
       </Dialog>
     </div>
